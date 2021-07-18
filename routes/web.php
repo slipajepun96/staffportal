@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\UserController;
+use App\Http\Controllers\CarController;
 
 
 /*
@@ -34,7 +35,8 @@ Route::group(['middleware'=>['auth']],function()
     Route::get('/configuration/update-profile',[UserController::class,'update'])->name('update-profile');
 
     //car
-    
+    Route::get('/cars/index',[CarController::class,'index'])->name('cars-index');
+
 
 
 });
