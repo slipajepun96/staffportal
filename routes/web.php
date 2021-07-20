@@ -41,11 +41,14 @@ Route::group(['middleware'=>['auth']],function()
 
 });
 
+Route::group(['middleware'=>['auth','hradmin']],function()
+{
+    //dashboard
+    
+    //configuration
+    
+    //car
+    Route::get('/cars/{id}',[CarController::class,'view'])->name('cars-view');
+    
 
-//middleware->hradmin
-//Route::middleware('')
-
-
-//register
-// Route::get('/register', [RegisterController::class,'index']);
-// Route::post('/register', [RegisterController::class,'store'])->name('register-store');
+});
