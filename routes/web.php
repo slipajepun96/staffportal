@@ -48,7 +48,9 @@ Route::group(['middleware'=>['auth','hradmin']],function()
     //configuration
     
     //car
+    Route::view('/cars/add','cars.add-car')->name('cars-add-form');
     Route::get('/cars/{id}',[CarController::class,'view'])->name('cars-view');
+    Route::get('/cars/store',[CarController::class,'add'])->name('cars-store');
     
 
 });

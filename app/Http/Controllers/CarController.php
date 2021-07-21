@@ -9,7 +9,7 @@ class CarController extends Controller
 {
     public function index()
     {
-        $cars=Car::select(['id','registration_no','model','estate_id'])->paginate(10);
+        $cars=Car::select(['id','registration_no','model','estate_id','active'])->paginate(10);
 
         return view('cars.index',['cars'=>$cars]);
     }
@@ -17,8 +17,14 @@ class CarController extends Controller
     public function view($id)
     {
         $car=Car::find($id);
-
-        return view('cars.view',['car'=>$car]);
+        if($car->active==TRUE)
+        {
+            return view('cars.view',['car'=>$car]);
+        }
+        else
+        {
+            return $this->index();
+        }
     }
 
 }
