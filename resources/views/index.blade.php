@@ -44,5 +44,9 @@
     </div>
 </div>
 
+<div class=" mt-3 mb-6 p-3 max-w-sm m-auto bg-gray-800 text-white rounded-xl shadow-xl items-center space-x-4">
+ Github Repository : <a href="https://github.com/slipajepun96/staffportal" class="underline">https://github.com/slipajepun96/staffportal</a>
+</div>
+
 </body>
 </html>

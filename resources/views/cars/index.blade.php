@@ -8,7 +8,7 @@
 
 
 <div class="m-3">
-    <a href="{{route('cars-add-form')}}" class="bg-green-700 hover:bg-green-500 text-white p-2 rounded">&#43; Kenderaan Baharu</a>
+    <a href="{{route('cars-add')}}" class="bg-green-700 hover:bg-green-500 text-white p-2 rounded">&#43; Kenderaan Baharu</a>
 </div>
 <div class="m-3">
     <table class="border-collapse border border-green-900 w-full">
