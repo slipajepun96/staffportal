@@ -48,9 +48,16 @@ Route::group(['middleware'=>['auth','hradmin']],function()
     //configuration
     
     //car
-    Route::get('/cars/add',[CarController::class,'add'])->name('cars-add');
-    Route::get('/cars/{id}',[CarController::class,'view'])->name('cars-view');
-    Route::post('/cars/store',[CarController::class,'store'])->name('cars-store');
+
+        //car-listing
+        Route::get('/cars/add',[CarController::class,'add'])->name('cars-add');
+        Route::get('/cars/{id}',[CarController::class,'view'])->name('cars-view');
+        Route::get('/cars/edit/{id}',[CarController::class,'edit'])->name('cars-edit');
+        Route::post('/cars/edit/{id}',[CarController::class,'update'])->name('cars-update');
+        Route::get('/cars/deactivate/{id}',[CarController::class,'deactivate'])->name('cars-deactivate');
+        Route::post('/cars/store',[CarController::class,'store'])->name('cars-store');
+
+        //car-usage
     
 
 });

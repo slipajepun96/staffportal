@@ -25,7 +25,7 @@ class CreateCarsTable extends Migration
             $table->date('date_of_roadtax_expired');
             $table->boolean('active');
             $table->string('fuel_type');
-            $table->boolean('official_car');
+            $table->integer('type_of_usage');
             $table->string('official_car_of')->nullable();
 
         });

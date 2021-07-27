@@ -28,7 +28,7 @@ class Car extends Model
         'date_of_roadtax_expired',
         'active',
         'fuel_type',
-        'official_car',
+        'type_of_usage',
         'estate_id',
         'official_car_of',
         'active'
