@@ -176,6 +176,22 @@
                 <span class="text-sm text-red"> {{$message}}</span>  
             @enderror
         </div>
+
+        <div id="hidden_div" class="mb-4 mx-1 inline-block md:w-1/4 w-full ">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+            Nama Pelulus Permohonan Penggunaan Kenderaan 
+            </label>       
+         <select name="car_approver_user_id" class="shadow appearance-none border w-1/4 w-full rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ">
+            <option value="0">Tiada</option>
+            @foreach($users as $user) 
+                <option value="{{$user->id}}">{{$user->name}}</option>
+             @endforeach
+         </select>
+            @error('car_approver_user_id')
+                <span class="text-sm text-red"> {{$message}}</span>  
+            @enderror
+
+        </div>
     </div>
     <input type="hidden" name="active" value=TRUE>
         <button class="bg-green-700 hover:bg-green-600 text-white p-2 rounded" type="submit">Tambah Kenderaan &rarr;</button>

@@ -27,6 +27,7 @@ class CreateCarsTable extends Migration
             $table->string('fuel_type');
             $table->integer('type_of_usage');
             $table->string('official_car_of')->nullable();
+            $table->string('car_approver_user_id')->nullable();
 
         });
     }

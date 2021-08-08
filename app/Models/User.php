@@ -46,4 +46,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function carRequest()
+    {
+        return $this->hasMany(CarRequest::class);
+    }
+
+    public function estate()
+    {
+        return $this->belongsTo(Estate::class);
+    }
+
 }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\CarRequestController;
 
 
 /*
@@ -35,8 +36,13 @@ Route::group(['middleware'=>['auth']],function()
     Route::get('/configuration/update-profile',[UserController::class,'update'])->name('update-profile');
 
     //car
-    Route::get('/cars/index',[CarController::class,'index'])->name('cars-index');
+        //car-listing
+        Route::get('/cars/index',[CarController::class,'index'])->name('cars-index');
 
+        //car-usage
+        Route::get('/cars/request',[CarRequestController::class,'index'])->name('cars-request-index');
+        Route::get('/cars/request/request-use',[CarRequestController::class,'request'])->name('cars-request-request-use');
+        Route::post('/cars/request/request-use',[CarRequestController::class,'request-add'])->name('cars-request-request-add');
 
 
 });
@@ -58,6 +64,7 @@ Route::group(['middleware'=>['auth','hradmin']],function()
         Route::post('/cars/store',[CarController::class,'store'])->name('cars-store');
 
         //car-usage
+        
     
 
 });

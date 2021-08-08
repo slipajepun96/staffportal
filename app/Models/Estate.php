@@ -14,4 +14,14 @@ class Estate extends Model
     {
         return $this->hasMany(Car::class);
     }
+
+    public function carRequests()
+    {
+        return $this->hasMany(CarRequest::class);
+    }
+
+    public function user()
+    {
+        return $this->hasMany(User::class);
+    }
 }
