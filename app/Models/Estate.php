@@ -20,7 +20,7 @@ class Estate extends Model
         return $this->hasMany(CarRequest::class);
     }
 
-    public function user()
+    public function users()
     {
         return $this->hasMany(User::class);
     }

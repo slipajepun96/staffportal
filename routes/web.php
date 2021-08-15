@@ -24,6 +24,11 @@ Route::get('/', function () {
 Route::view('/password-reset','auth.forgot-password')->name('password-reset');
 
 
+Route::get('/email/welcome', function () {
+    return new App\Mail\CarRequestEmail();
+    });
+
+
 //middleware->auth
 Route::group(['middleware'=>['auth']],function()
 {
@@ -40,9 +45,9 @@ Route::group(['middleware'=>['auth']],function()
         Route::get('/cars/index',[CarController::class,'index'])->name('cars-index');
 
         //car-usage
+        Route::post('/cars/request/request-use',[CarRequestController::class,'store'])->name('cars-request-request-store');
         Route::get('/cars/request',[CarRequestController::class,'index'])->name('cars-request-index');
         Route::get('/cars/request/request-use',[CarRequestController::class,'request'])->name('cars-request-request-use');
-        Route::post('/cars/request/request-use',[CarRequestController::class,'request-add'])->name('cars-request-request-add');
 
 
 });

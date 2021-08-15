@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Estate;
+use App\Models\CarRequest;
 use Illuminate\Notifications\Notifiable;
 
 class Car extends Model
@@ -38,5 +39,10 @@ class Car extends Model
     public function estate()
     {
         return $this->belongsTo(Estate::class);
+    }
+
+    public function carRequests()
+    {
+        return $this->hasMany(CarRequest::class);
     }
 }
