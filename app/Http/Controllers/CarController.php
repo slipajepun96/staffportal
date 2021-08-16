@@ -70,7 +70,7 @@ class CarController extends Controller
     public function deactivate($id)
     {
         $car=Car::find($id);
-        $car->active=FALSE;
+        $car->active=0;
         $car->save();
         return redirect('cars/index')->with('status','Kenderaan Telah Dinyahaktifkan');
     }
@@ -89,11 +89,11 @@ class CarController extends Controller
         //dd($request);
         if($request->official_car==1)
         {
-            $request->official_car=TRUE;
+            $request->official_car=1;
         }
         else
         {
-            $request->official_car=FALSE;
+            $request->official_car=0;
         }
         $data=$request->validate([
             'registration_no'=>'required|max:15',

@@ -23,14 +23,20 @@
         showDropdowns: true,
         autoUpdateInput: true,
         minYear: 1901,
-        maxYear: parseInt(moment().format('YYYY'),10)
+        maxYear: parseInt(moment().format('YYYY'),10),
+        locale: {
+            format: 'YYYY-MM-DD'
+        }
       });
       $('input[name="date_of_roadtax_expired"]').daterangepicker({
         singleDatePicker: true,
         showDropdowns: true,
         autoUpdateInput: true,
         minYear: 2020,
-        maxYear: 2050
+        maxYear: 2050,
+        locale: {
+            format: 'YYYY-MM-DD'
+        }
       });
     });
 
@@ -193,7 +199,7 @@
 
         </div>
     </div>
-    <input type="hidden" name="active" value=TRUE>
+    <input type="hidden" name="active" value=1>
         <button class="bg-green-700 hover:bg-green-600 text-white p-2 rounded" type="submit">Tambah Kenderaan &rarr;</button>
     
 

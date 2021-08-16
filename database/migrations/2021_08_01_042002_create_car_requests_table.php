@@ -23,7 +23,7 @@ class CreateCarRequestsTable extends Migration
             $table->dateTime('planned_end_datetime')->nullable();
             $table->string('destination');
             $table->string('journey_description');
-            $table->dateTime('approved_datetime');
+            $table->dateTime('approved_datetime')->nullable();
             $table->boolean('active');
 
         });
