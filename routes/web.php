@@ -44,10 +44,13 @@ Route::group(['middleware'=>['auth']],function()
         //car-listing
         Route::get('/cars/index',[CarController::class,'index'])->name('cars-index');
 
-        //car-usage
+        //car-request
         Route::post('/cars/request/request-use',[CarRequestController::class,'store'])->name('cars-request-request-store');
+        Route::delete('/cars/request/delete/{id}',[CarRequestController::class,'delete'])->name('car-request-delete');
         Route::get('/cars/request',[CarRequestController::class,'index'])->name('cars-request-index');
         Route::get('/cars/request/request-use',[CarRequestController::class,'request'])->name('cars-request-request-use');
+        Route::get('/cars/request/view/{id}',[CarRequestController::class,'view'])->name('car-request-view');
+        
 
 
 });

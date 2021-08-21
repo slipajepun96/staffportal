@@ -31,7 +31,7 @@
                     visibility:visible;
                 }
         } */
-
+        form, form div { display: inline; }
     </style>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     

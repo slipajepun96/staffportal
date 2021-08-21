@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Mail\CarRequestEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CarRequestController extends Controller
 {
@@ -17,10 +18,12 @@ class CarRequestController extends Controller
     //1->pending approval
     //2->approved
     //3->rejected
+    //4->journey cancelled
+    //5->completed
     public function index()
     {
         $user_id=Auth::user()->id;
-        $car_requests=CarRequest::select(['id','user_id','car_id','estate_id','status','planned_start_datetime','destination'])->where('user_id',$user_id)->paginate(10);
+        $car_requests=CarRequest::select(['id','user_id','car_id','estate_id','status','planned_start_datetime','destination'])->where('user_id',$user_id)->orderBy('planned_start_datetime','DESC')->paginate(10);
         return view('cars.request.index',['car_requests'=>$car_requests]);
     }
 
@@ -65,9 +68,27 @@ class CarRequestController extends Controller
         Mail::to($user_email)->send( new CarRequestEmail() );
     }
 
-    public function delete()
-    {
 
+    public function view($id)
+    {
+        $user_id=Auth::user()->id;
+
+        $result=CarRequest::findOrFail($id);
+
+        if($result->user_id==$user_id)
+        {
+            return view('cars.request.view',['result'=>$result]);
+        }
+        else
+        {
+            return redirect('car/request');
+        }
+    }
+
+    public function delete($id)
+    {
+        DB::table('car_requests')->where('id',$id)->delete();
+        return redirect('cars/request');
     }
 
 }
