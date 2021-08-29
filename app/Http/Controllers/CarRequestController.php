@@ -10,6 +10,7 @@ use App\Mail\CarRequestEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class CarRequestController extends Controller
 {
@@ -24,7 +25,10 @@ class CarRequestController extends Controller
     {
         $user_id=Auth::user()->id;
         $car_requests=CarRequest::select(['id','user_id','car_id','estate_id','status','planned_start_datetime','destination'])->where('user_id',$user_id)->orderBy('planned_start_datetime','DESC')->paginate(10);
-        return view('cars.request.index',['car_requests'=>$car_requests]);
+ 
+        $car_approves=Car::all()->where('car_approver_user_id',$user_id);
+
+        return view('cars.request.index',['car_requests'=>$car_requests,'car_approves'=>$car_approves]);
     }
 
     public function request()
@@ -72,6 +76,9 @@ class CarRequestController extends Controller
     public function view($id)
     {
         $user_id=Auth::user()->id;
+        $car_approve=Car::find('car_approver_user_id',$user);
+
+        dd($car_approve);
 
         $result=CarRequest::findOrFail($id);
 
@@ -88,7 +95,9 @@ class CarRequestController extends Controller
     public function delete($id)
     {
         DB::table('car_requests')->where('id',$id)->delete();
+        Session::flash('status','Permohonan anda telah dibuang');
         return redirect('cars/request');
     }
+
 
 }

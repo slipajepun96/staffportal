@@ -9,28 +9,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
-/* 
-        @media screen and (max-width : 1920px)
-        {
-            .div-only-mobile
-            {
-                display:none;
-            }
-        } */
-        /* @media screen and (max-width : 906px)
-        {
-            .desk
-                {
-                    display:none;
-                }
-            .div-only-mobile
-                {
-                    visibility:visible;
-                }
-        } */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        </style>
+    <style>
+    
         form, form div { display: inline; }
     </style>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

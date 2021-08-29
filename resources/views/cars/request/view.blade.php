@@ -29,21 +29,35 @@
         </div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 m-3">
-        <div class="bg-gray-100 p-4 m-1 rounded font-bold">Kenderaan Dipohon</div>
+        <div class="bg-gray-100 p-4 m-1 rounded font-bold font-sans">Kenderaan Dipohon</div>
         <div class="bg-gray-100 p-4 m-1 rounded ">{{$result->car->registration_no}} , {{$result->car->model}}</div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-6 m-3">
-        <div class="bg-gray-100 p-4 rounded font-bold">Tarikh & Masa Mula Guna</div>
-        <div class="bg-gray-100 p-4 rounded ">{{$result->planned_start_datetime}}</div>
-        <div class="bg-gray-100 p-4 rounded font-bold">Tarikh & Masa Tamat Guna</div>
-        <div class="bg-gray-100 p-4 rounded ">{{$result->planned_end_datetime}}</div>
-        <div class="bg-gray-100 p-4 rounded font-bold">Tujuan</div>
-        <div class="bg-gray-100 p-4 rounded ">{{$result->destination}}</div>
+
+    <?php 
+    $planned_start_date=strtotime($result->planned_start_datetime);
+    $planned_start_date=date("d-M-Y H:i",$planned_start_date);
+    $planned_end_date=strtotime($result->planned_end_datetime);
+    $planned_end_date=date("d-M-Y H:i",$planned_end_date);
+?>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 m-3">
+        <div class="py-3 rounded">    
+            <div class="bg-gray-100 p-4 m-1 rounded font-bold">Tarikh & Masa Mula Guna</div>
+            <div class="bg-gray-100 p-4 m-1 rounded ">{{$planned_start_date}}</div>
+        </div>
+        <div class="py-3 rounded">    
+            <div class="bg-gray-100 p-4 m-1 rounded font-bold">Tarikh & Masa Tamat Guna</div>
+            <div class="bg-gray-100 p-4 m-1 rounded ">{{$planned_end_date}}</div>
+        </div>
+        <div class="py-3 rounded">    
+            <div class="bg-gray-100 p-4 m-1 rounded font-bold">Tujuan</div>
+            <div class="bg-gray-100 p-4 m-1 rounded ">{{$result->destination}}</div>
+        </div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-1 gap-4 m-3">
         <div class="py-3 rounded">      
-            <div class="bg-gray-100 p-4 rounded font-bold">Butiran Perjalanan</div>
-            <div class="bg-gray-100 p-4 rounded ">{{$result->journey_description}}</div>
+            <div class="bg-gray-100 p-4 m-1 rounded font-bold">Butiran Perjalanan</div>
+            <div class="bg-gray-100 p-4 m-1 rounded ">{{$result->journey_description}}</div>
         </div>
     </div>
     

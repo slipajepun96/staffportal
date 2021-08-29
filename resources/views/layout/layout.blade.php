@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <script src="{{ asset('js/app.js')}}"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
 </head>

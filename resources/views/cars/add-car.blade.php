@@ -183,7 +183,7 @@
             @enderror
         </div>
 
-        <div id="hidden_div" class="mb-4 mx-1 inline-block md:w-1/4 w-full ">
+        <div  class="mb-4 mx-1 inline-block md:w-1/4 w-full ">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
             Nama Pelulus Permohonan Penggunaan Kenderaan 
             </label>       

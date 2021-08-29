@@ -58,9 +58,9 @@ Improve consistency of default fonts in all browsers. (https://github.com/sindre
 
 body {
   font-family:
-		system-ui,
+    system-ui,
 		-apple-system, /* Firefox supports this but not yet `system-ui` */
-		'Segoe UI',
+		SFMono-Regular,
 		Roboto,
 		Helvetica,
 		Arial,

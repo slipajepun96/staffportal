@@ -60,7 +60,9 @@ class CarController extends Controller
             'official_car_of'=>'max:255',
             'estate_id'=>'required|max:2',
             'type_of_usage'=>'required',
-            'active'=>'required'
+            'active'=>'required',
+            'car_approver_user_id'=>'required',
+
         ]);
         
         Car::create($data);

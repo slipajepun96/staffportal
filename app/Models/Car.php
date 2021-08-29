@@ -32,7 +32,8 @@ class Car extends Model
         'type_of_usage',
         'estate_id',
         'official_car_of',
-        'active'
+        'active',
+        'car_approver_user_id',
 
     ];
 
